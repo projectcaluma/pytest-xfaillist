@@ -1,2 +1,2 @@
 def test_hooks():
-    pass
+    raise RuntimeError("Test failure")
