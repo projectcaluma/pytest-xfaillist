@@ -1,0 +1,9 @@
+#!/bin/sh
+
+find . -name "*.py" | entr sh -c "
+    set -e
+    dmypy run -- pytest_xfaillist
+    flake8 pytest_xfaillist
+    pytest pytest_xfaillist
+    ag TODO pytest_xfaillist
+"

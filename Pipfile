@@ -9,3 +9,6 @@ pytest-xfaillist = {editable = true, path = "."}
 [dev-packages]
 pytest-xfaillist = {editable = true, extras = ["dev"], path = "."}
 pip = "*"
+
+[requires]
+python_version = "3"
