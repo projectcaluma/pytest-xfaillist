@@ -1,0 +1,7 @@
+/build/
+/pytest_xfaillist.egg-info/
+__pycache__
+/dist
+*.pyc
+/.hypothesis/
+/.dmypy.json
