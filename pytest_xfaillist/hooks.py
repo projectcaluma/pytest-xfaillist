@@ -3,6 +3,7 @@ from __future__ import annotations
 import json
 from typing import TYPE_CHECKING
 
+from _pytest.python import Function
 from pytest import mark
 
 from . import config_to_xfaillist_path, item_to_test_id
@@ -35,6 +36,7 @@ def pytest_configure(config: Config):
 
 def pytest_collection_finish(session: Session) -> None:
     for item in session.items:
-        id = item_to_test_id(item)
-        if id in _faillist:
-            item.add_marker(mark.xfail(reason="in xfail.list", strict=True))
+        if isinstance(item, Function):
+            id = item_to_test_id(item)
+            if id in _faillist:
+                item.add_marker(mark.xfail(reason="in xfail.list", strict=True))
