@@ -17,7 +17,7 @@ _faillist: Set[str] = set()
 
 
 def pytest_runtest_makereport(item: Function, call: CallInfo[None]) -> None:
-    if call.when == "call" and call.excinfo:
+    if call.excinfo:
         _faillist.add(item_to_test_id(item))
 
 
