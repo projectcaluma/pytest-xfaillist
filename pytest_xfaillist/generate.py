@@ -2,10 +2,9 @@ from __future__ import annotations
 
 import json
 from codecs import open
-from pathlib import Path
 from typing import TYPE_CHECKING
 
-from . import item_to_test_id
+from . import config_to_xfaillist_path, item_to_test_id
 
 if TYPE_CHECKING:
     from typing import List
@@ -23,5 +22,6 @@ def pytest_runtest_makereport(item: Function, call: CallInfo[None]) -> None:
 
 
 def pytest_unconfigure(config: Config) -> None:
-    with open(str(Path(config.rootpath, "xfails.list")), "w", encoding="UTF-8") as f:
+    path = config_to_xfaillist_path(config)
+    with open(str(path), "w", encoding="UTF-8") as f:
         json.dump(_faillist, f, indent=4)
