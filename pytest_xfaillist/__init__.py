@@ -14,4 +14,4 @@ def config_to_xfaillist_path(config: Config) -> Path:
 
 def item_to_test_id(item: Function) -> str:
     function = item.function
-    return f"{function.__module__}.{function.__name__}"
+    return f"{function.__module__}.{item.name}"
