@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "pytest-xfaillist"
-version = "0.1.0"
+version = "0.1.1"
 description = "Maintain a xfaillist in an additional file to avoid merge-conflicts."
 homepage = "https://github.com/projectcaluma/pytest-xfaillist"
 repository = "https://github.com/projectcaluma/pytest-xfaillist"
