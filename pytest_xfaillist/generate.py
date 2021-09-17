@@ -24,4 +24,4 @@ def pytest_runtest_makereport(item: Function, call: CallInfo[None]) -> None:
 def pytest_unconfigure(config: Config) -> None:
     path = config_to_xfaillist_path(config)
     with open(str(path), "w", encoding="UTF-8") as f:
-        json.dump(list(_faillist), f, indent=4, sort_keys=True)
+        json.dump(sorted(list(_faillist)), f, indent=4, sort_keys=True)
